@@ -1,0 +1,21 @@
+<h1>Angular Universal demo</h1>
+<p>Uses config.json with APP_INITIALIZE to delay bootstrap process until configuration is loaded</p>
+<p>See:</p>
+<ul>
+<li><a href="https://juristr.com/blog/2018/01/ng-app-runtime-config/" target="_blank">Compile-time vs. Runtime configuration of your Angular App</a></li>
+<li><a href="https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments#wrapping-up" target="_blank">Build once deploy to multiple environments</a></li>
+</ul>
+<h2>Runtime configuration:</h2>
+  <ul>
+    <li><b>Env:</b> {{config.env}}</li>
+    <li><b>ActiveTheme:</b> {{config.activeTheme}}</li>
+    <li><b>LoggerLevel:</b> {{config.loggerLevel}}</li>
+    <li><b>BuildRef:</b> {{config.buildRef}}</li>
+  </ul>
+  <h2>Commands:</h2>
+  <ul>
+    <li><b>Browser:</b> ng serve (Works✔️)</li>
+    <li><b>Dev server-side-render:</b> npm run dev:ssr (shows error❌)</li>
+    <li><b>Prerender:</b> npm run prerender (shows error❌)</li>
+  </ul>
+<router-outlet></router-outlet>
