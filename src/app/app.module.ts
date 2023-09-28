@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppConfigService } from './services/app-config.service';
 
-const configInitializerFn = (configService: AppConfigService) => {
+const configInitializerFactory = (configService: AppConfigService) => {
   console.debug('Entering AppModule app initializer');
   return () => {
     return configService.loadAppConfig();
@@ -24,7 +24,7 @@ const configInitializerFn = (configService: AppConfigService) => {
     AppConfigService,
     {
       provide: APP_INITIALIZER,
-      useFactory: configInitializerFn,
+      useFactory: configInitializerFactory,
       multi: true,
       deps: [AppConfigService]
     }
