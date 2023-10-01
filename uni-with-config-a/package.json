@@ -1,5 +1,5 @@
 {
-  "name": "uni-with-config",
+  "name": "uni-with-config-a",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run uni-with-config:serve-ssr",
-    "serve:ssr": "node dist/uni-with-config/server/main.js",
-    "build:ssr": "ng build && ng run uni-with-config:server",
-    "prerender": "ng run uni-with-config:prerender"
+    "dev:ssr": "ng run uni-with-config-a:serve-ssr",
+    "serve:ssr": "node dist/uni-with-config-a/server/main.js",
+    "build:ssr": "ng build && ng run uni-with-config-a:server",
+    "prerender": "ng run uni-with-config-a:prerender"
   },
   "private": true,
   "dependencies": {

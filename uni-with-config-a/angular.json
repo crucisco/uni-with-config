@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "uni-with-config": {
+    "uni-with-config-a": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/uni-with-config/browser",
+            "outputPath": "dist/uni-with-config-a/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "uni-with-config:build:production"
+              "browserTarget": "uni-with-config-a:build:production"
             },
             "development": {
-              "browserTarget": "uni-with-config:build:development"
+              "browserTarget": "uni-with-config-a:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "uni-with-config:build"
+            "browserTarget": "uni-with-config-a:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/uni-with-config/server",
+            "outputPath": "dist/uni-with-config-a/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -136,12 +136,12 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "uni-with-config:build:development",
-              "serverTarget": "uni-with-config:server:development"
+              "browserTarget": "uni-with-config-a:build:development",
+              "serverTarget": "uni-with-config-a:server:development"
             },
             "production": {
-              "browserTarget": "uni-with-config:build:production",
-              "serverTarget": "uni-with-config:server:production"
+              "browserTarget": "uni-with-config-a:build:production",
+              "serverTarget": "uni-with-config-a:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -155,12 +155,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "uni-with-config:build:production",
-              "serverTarget": "uni-with-config:server:production"
+              "browserTarget": "uni-with-config-a:build:production",
+              "serverTarget": "uni-with-config-a:server:production"
             },
             "development": {
-              "browserTarget": "uni-with-config:build:development",
-              "serverTarget": "uni-with-config:server:development"
+              "browserTarget": "uni-with-config-a:build:development",
+              "serverTarget": "uni-with-config-a:server:development"
             }
           },
           "defaultConfiguration": "production"

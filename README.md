@@ -1,11 +1,55 @@
-# Angular Universal With Runtime Configuration
+# Purpose
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4, then updated to Angular 16.
+The purpose is to find and demonstrate runtime configuration in Angular in lieu of 'environment.ts'.  
 
-## This project contains boilerplate code
-The purpose is to use runtime configuration in lieu of 'environment.ts'.  
+This GitHub contains two potential solution projects generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4, then updated to Angular 16.
+
+_Tip: Open each solution separately to execute Angular CLI or `npm` commands._
+
+## Solution A: APP_INITIALIZER Method
+
+Using APP_INITIALIZER _postpone_ method on [Github](https://github.com/crucisco/uni-with-config).
+
 The solution works with Server-side rendering and prerendering.
 
+## Solution B: browserPlatform Method. Contains errors
+
+Using the _platformBrowserDynamic_ method, as described in [Tim Deshryver's blog post](https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments).
+
+Whilst this works for normal client-side operation, there are issues with server-side rendering and pre-rendering.
+
+### Server-side error
+
+The issue here seems to be that during server-side rendering the config.json file is simply not available when main.js executes.
+
+```
+Waiting for the debugger to disconnect...
+./src/%20sync:4
+        throw e;
+^
+
+
+Error: Cannot find module './assets/config.json'
+    at require (./src/%20sync:2:1)
+    at Module.8674 (./src/main.server.ts:4:14)
+    at __webpack_require__ (./webpack/bootstrap:19:1)
+    at 4991 (D:\Prototypes\uni-with-config-v2\dist\uni-with-config-v2\server\main.js:29:74)
+    at __webpack_require__ (./webpack/bootstrap:19:1)
+    at <anonymous> (./webpack/bootstrap:36:1)
+    at Function.__webpack_require__.O (./webpack/runtime/chunk%20loaded:23:1)
+    at __webpack_require__.x (./webpack/bootstrap:37:1)
+    at configFile (./webpack/runtime/startup%20chunk%20dependencies:4:1)
+    at <anonymous> (./webpack/startup:2:1) {
+  code: 'MODULE_NOT_FOUND'
+}
+
+Node.js v18.16.0
+A server error has occurred.
+node exited with 1 code.
+connect ECONNREFUSED ::1:52810
+```
+
+## General notes
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

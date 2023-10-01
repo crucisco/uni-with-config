@@ -8,7 +8,7 @@ import { AppConfig } from './app.config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title: string = 'uni-with-config';
+  title: string = 'uni-with-config-a';
   config: AppConfig;
 
   constructor(private configService: AppConfigService) {

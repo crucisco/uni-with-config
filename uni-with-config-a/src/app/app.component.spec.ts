@@ -22,10 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'uni-with-config'`, () => {
+  it(`should have as title 'uni-with-config-a'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('uni-with-config');
+    expect(app.title).toEqual('uni-with-config-a');
   });
 
   it(`should get config data from service`, ()=> {
