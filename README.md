@@ -8,15 +8,17 @@ _Tip: Open each solution separately to execute Angular CLI or `npm` commands._
 
 ## Solution A: APP_INITIALIZER Method
 
-Using APP_INITIALIZER _postpone_ method on [Github](https://github.com/crucisco/uni-with-config).
+Using APP_INITIALIZER _postpone_ method as described in [Compile-time vs. Runtime configuration of your Angular App](https://juristr.com/blog/2018/01/ng-app-runtime-config/).
 
-The solution works with Server-side rendering and prerendering.
+This solution, works with client-side bootstrapping and also server-side rendering and prerendering.
 
-## Solution B: browserPlatform Method. Contains errors
+## Solution B: browserPlatform Method (Experimental, contains errors)
 
 Using the _platformBrowserDynamic_ method, as described in [Tim Deshryver's blog post](https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments).
 
-Whilst this works for normal client-side operation, there are issues with server-side rendering and pre-rendering.
+NB: Whilst this works for normal client-side operation, **there are issues with server-side rendering and pre-rendering**.
+
+The benefit of this mechanism is that the configuration becomes available much earlier in the application lifecycle, meaning it is available even before execution of `app.module` and can be injected into sub-modules if necessary.
 
 ### Server-side error
 
@@ -49,7 +51,7 @@ node exited with 1 code.
 connect ECONNREFUSED ::1:52810
 ```
 
-## General notes
+## General Angular CLI notes
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
