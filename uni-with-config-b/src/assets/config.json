@@ -1,0 +1,6 @@
+{
+  "env": "Dev",
+  "activeTheme": "solution-b",
+  "loggerLevel": "DEBUG",
+  "buildRef": "1.0.0.0B-DEV"
+}

@@ -12,13 +12,13 @@ Using APP_INITIALIZER _postpone_ method as described in [Compile-time vs. Runtim
 
 This solution, works with client-side bootstrapping and also server-side rendering and prerendering.
 
-## Solution B: platformBrowser Method (Experimental, contains errors)
+## Solution B: platformBrowserDynamic Method (Experimental, contains errors)
 
 Using the _platformBrowserDynamic_ method, as described in [Tim Deshryver's blog post](https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments).
 
 NB: Whilst this works for normal client-side operation, **there are issues with server-side rendering and pre-rendering**.
 
-The benefit of this mechanism is that the configuration becomes available much earlier in the application lifecycle, meaning it is available even before execution of `app.module` and can be injected into sub-modules if necessary.
+The benefit of this mechanism is that the configuration becomes available much earlier in the application lifecycle, meaning it is available even before execution of `app.module` and can be used outside of components and services.
 
 ### Server-side error
 

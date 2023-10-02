@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'uni-with-config'`, () => {
+  it(`should have as title 'uni-with-config-b'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('uni-with-config');
+    expect(app.title).toEqual('uni-with-config-b');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('uni-with-config app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('uni-with-config-b app is running!');
   });
 });

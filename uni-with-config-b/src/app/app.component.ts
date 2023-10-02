@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Injector } from '@angular/core';
+import { AppConfig, APP_CONFIG } from './app.config';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'uni-with-config';
+  config: AppConfig = null!;
+
+  constructor(@Inject(APP_CONFIG) private appConfig: AppConfig) {
+    console.debug(`AppComponent constructor: ${appConfig.env}`);
+    this.config = appConfig;
+  }
+
+  title = 'uni-with-config-b';
 }
