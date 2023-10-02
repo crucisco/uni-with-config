@@ -1,4 +1,4 @@
-import { Component, Inject, Injector } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AppConfig, APP_CONFIG } from './app.config';
 
 @Component({

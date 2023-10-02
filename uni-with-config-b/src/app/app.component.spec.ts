@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { APP_CONFIG, AppConfig } from './app.config';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -10,6 +11,20 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent
+      ],
+      providers: [
+        {
+          provide: APP_CONFIG,
+          useFactory: (config: AppConfig) => {
+            var config = new AppConfig();
+            config.env = 'TEST';
+            config.activeTheme = "ThemeTest";
+            config.buildRef = "T35t";
+            config.loggerLevel = "DEBUG";
+            return config;
+          },
+        }
+
       ],
     }).compileComponents();
   });
@@ -30,6 +45,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('uni-with-config-b app is running!');
+    expect(compiled.querySelector("li.activeTheme")?.textContent).toContain("ActiveTheme: ThemeTest");
   });
 });
