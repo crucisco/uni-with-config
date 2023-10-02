@@ -1,6 +1,6 @@
 # Purpose
 
-The purpose is to find and demonstrate runtime configuration in Angular in lieu of 'environment.ts'.  
+The purpose is to find and demonstrate runtime configuration in Angular in lieu of `environment.ts`.  
 
 This GitHub contains two potential solution projects generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4, then updated to Angular 16.
 
@@ -12,7 +12,7 @@ Using APP_INITIALIZER _postpone_ method as described in [Compile-time vs. Runtim
 
 This solution, works with client-side bootstrapping and also server-side rendering and prerendering.
 
-## Solution B: browserPlatform Method (Experimental, contains errors)
+## Solution B: platformBrowser Method (Experimental, contains errors)
 
 Using the _platformBrowserDynamic_ method, as described in [Tim Deshryver's blog post](https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments).
 
