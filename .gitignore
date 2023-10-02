@@ -41,7 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/uni-with-config-a/.angular/**/*.*
-**/dist/**/*.*
-**/node_modules/**/*.*
+**/.angular/**/*
+**/dist/**/**
 **/node_modules/**/*
