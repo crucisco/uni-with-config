@@ -12,44 +12,13 @@ Using APP_INITIALIZER _postpone_ method as described in [Compile-time vs. Runtim
 
 This solution, works with client-side bootstrapping and also server-side rendering and prerendering.
 
-## Solution B: platformBrowserDynamic Method (Experimental, contains errors)
+## Solution B: platformBrowserDynamic Method
 
 Using the _platformBrowserDynamic_ method, as described in [Tim Deshryver's blog post](https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments).
 
-NB: Whilst this works for normal client-side operation, **there are issues with server-side rendering and pre-rendering**.
+The benefit of this mechanism is that the configuration becomes available much earlier in the application lifecycle, meaning it is available even before execution of `app.module` and can be used outside of components and services, for example with sub-modules or to configure external modules.
 
-The benefit of this mechanism is that the configuration becomes available much earlier in the application lifecycle, meaning it is available even before execution of `app.module` and can be used outside of components and services.
-
-### Server-side error
-
-The issue here seems to be that during server-side rendering the config.json file is simply not available when main.js executes.
-
-```
-Waiting for the debugger to disconnect...
-./src/%20sync:4
-        throw e;
-^
-
-
-Error: Cannot find module './assets/config.json'
-    at require (./src/%20sync:2:1)
-    at Module.8674 (./src/main.server.ts:4:14)
-    at __webpack_require__ (./webpack/bootstrap:19:1)
-    at 4991 (D:\Prototypes\uni-with-config-v2\dist\uni-with-config-v2\server\main.js:29:74)
-    at __webpack_require__ (./webpack/bootstrap:19:1)
-    at <anonymous> (./webpack/bootstrap:36:1)
-    at Function.__webpack_require__.O (./webpack/runtime/chunk%20loaded:23:1)
-    at __webpack_require__.x (./webpack/bootstrap:37:1)
-    at configFile (./webpack/runtime/startup%20chunk%20dependencies:4:1)
-    at <anonymous> (./webpack/startup:2:1) {
-  code: 'MODULE_NOT_FOUND'
-}
-
-Node.js v18.16.0
-A server error has occurred.
-node exited with 1 code.
-connect ECONNREFUSED ::1:52810
-```
+Although I had difficulties on the SSR and pre-rendering using this mechanism, it too now works with client-side bootstrapping and also server-side rendering and prerendering.
 
 ## General Angular CLI notes
 ### Development server
