@@ -21,7 +21,7 @@ export function app(): express.Express {
         provide: APP_CONFIG,
         useFactory: (config: AppConfig) => {
           config = require("./src/assets/config.json");
-          console.debug(`Node server loaded app config. Env: ${config.env}`);
+          console.debug(`Node server loaded app config for SSR. Env: ${config.env}`);
           return config;
         }
       }
