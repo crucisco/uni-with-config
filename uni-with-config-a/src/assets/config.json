@@ -1,6 +1,7 @@
 {
   "env": "Dev",
-  "activeTheme": "basic",
+  "apiBaseUrl": "https://collectionapi.metmuseum.org/public/collection/v1",
+  "activeTheme": "uniconfig-A",
   "loggerLevel": "DEBUG",
   "buildRef": "1.0.0.0DEV"
 }

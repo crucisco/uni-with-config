@@ -2,6 +2,7 @@ import { InjectionToken } from "@angular/core"
 
 export class AppConfig {
   env: string = ""
+  apiBaseUrl: string = ""
   activeTheme: string = ""
   loggerLevel: string = ""
   buildRef: string = ""

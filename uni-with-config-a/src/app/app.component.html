@@ -2,20 +2,43 @@
 <p>Uses config.json with APP_INITIALIZE to delay bootstrap process until configuration is loaded</p>
 <p>See:</p>
 <ul>
-<li><a href="https://juristr.com/blog/2018/01/ng-app-runtime-config/" target="_blank">Compile-time vs. Runtime configuration of your Angular App</a></li>
-<li><a href="https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments#wrapping-up" target="_blank">Build once deploy to multiple environments</a></li>
+  <li><a href="https://juristr.com/blog/2018/01/ng-app-runtime-config/" target="_blank">Compile-time vs. Runtime
+      configuration of your Angular App</a></li>
+  <li><a href="https://timdeschryver.dev/blog/angular-build-once-deploy-to-multiple-environments#wrapping-up"
+      target="_blank">Build once deploy to multiple environments</a></li>
 </ul>
 <h2>Runtime configuration:</h2>
-  <ul>
-    <li><b>Env:</b> {{config.env}}</li>
-    <li class="activeTheme"><b>ActiveTheme:</b> {{config.activeTheme}}</li>
-    <li><b>LoggerLevel:</b> {{config.loggerLevel}}</li>
-    <li><b>BuildRef:</b> {{config.buildRef}}</li>
-  </ul>
-  <h2>Commands:</h2>
-  <ul>
-    <li><b>Browser:</b> ng serve (Works✔️)</li>
-    <li><b>Dev server-side-render:</b> npm run dev:ssr (Works✔️)</li>
-    <li><b>Prerender:</b> npm run prerender (Works✔️)</li>
-  </ul>
+<ul>
+  <li><b>Env:</b> {{config.env}}</li>
+  <li class="activeTheme"><b>ActiveTheme:</b> {{config.activeTheme}}</li>
+  <li><b>LoggerLevel:</b> {{config.loggerLevel}}</li>
+  <li><b>BuildRef:</b> {{config.buildRef}}</li>
+  <li><b>ApiBaseUrl: {{config.apiBaseUrl}}</b></li>
+</ul>
+<h2>Commands:</h2>
+<ul>
+  <li><b>Browser:</b> ng serve (Works✔️)</li>
+  <li><b>Dev server-side-render:</b> npm run dev:ssr (Works✔️)</li>
+  <li><b>Prerender:</b> npm run prerender (Works✔️)</li>
+</ul>
+
+<h2>Client-side bootstrapping</h2>
+
+<p>Demonstrates that client-side bootstrapping is successful, by proper initialisation of observables.</p>
+
+<h3>Example 1: Clock</h3>
+<b>{{clock}}</b>
+
+<h3>Example 2: External Api</h3>
+<p *ngIf="image">
+    <img src="{{image.url}}" alt="{{image.title}}"/>
+    <br/>
+   <b>{{image.title}}</b> <br/>
+      by <i>{{image.credit}}</i> <br/>
+      &copy; Metropolitan Museum of Art
+
+
+</p>
+<p *ngIf="!(image)">Could not load from api.</p>
+
 <router-outlet></router-outlet>

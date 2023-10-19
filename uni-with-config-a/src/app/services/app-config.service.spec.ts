@@ -19,6 +19,6 @@ describe('AppConfigService', () => {
     await service.loadAppConfig();
     let config:AppConfig = service.getConfig();
     expect(config.env).toEqual("Dev");
-    expect(config.activeTheme).toEqual("basic");
+    expect(config.activeTheme).toEqual("uniconfig-A");
   });
 });

@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppConfigService } from './services/app-config.service';
+import { RandomImageService } from './services/random-image.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const configInitializerFactory = (configService: AppConfigService) => {
   console.debug('Entering AppModule app initializer');
@@ -18,9 +20,11 @@ const configInitializerFactory = (configService: AppConfigService) => {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
+    RandomImageService,
     AppConfigService,
     {
       provide: APP_INITIALIZER,
