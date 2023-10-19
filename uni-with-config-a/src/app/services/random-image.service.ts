@@ -9,7 +9,10 @@ import { AppConfigService } from './app-config.service';
 })
 export class RandomImageService {
   // https://collectionapi.metmuseum.org/public/collection/v1/search?q=departmentId=11&hasImages=true&medium=Paintings
-  private searchUrl: string = "/search?q=hasImages=true&medium=Paintings";
+  private searchUrl: string = "/search?q=";
+  private imageFilter: string = "hasImages=true";
+  private mediumFilter: string = "medium=Paintings";
+  private departmentFilter: string = "departmentId=11"; // European art
   private objectsUrl: string = "/objects";
   private euArtDepartmentId: number = 11;
 
@@ -52,8 +55,9 @@ export class RandomImageService {
   }
 
   private getSearchResults(): Observable<any> {
+    let fullUrl = this.configService.getConfig().apiBaseUrl + this.searchUrl + `${this.departmentFilter}&${this.imageFilter}&${this.mediumFilter}`;
     return this.http
-      .get(this.configService.getConfig().apiBaseUrl + this.searchUrl + `&departmentId=${this.euArtDepartmentId}`);
+      .get(fullUrl);
   }
 
   private getObject(id: number): Observable<any> {

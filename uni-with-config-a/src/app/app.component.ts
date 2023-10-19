@@ -3,6 +3,7 @@ import { AppConfigService } from './services/app-config.service';
 import { AppConfig } from './app.config';
 import { Subscription } from 'rxjs';
 import { RandomImageService } from './services/random-image.service';
+import { ClockService } from './services/clock.service';
 
 @Component({
   selector: 'app-root',
@@ -18,15 +19,16 @@ export class AppComponent implements OnInit, OnDestroy {
   private timeSubscription: Subscription = new Subscription();
   private artSubscription: Subscription = new Subscription();
 
-  constructor(private configService: AppConfigService, private imageService: RandomImageService) {
+  constructor(private configService: AppConfigService, private clockService: ClockService, private imageService: RandomImageService) {
     console.debug("AppComponent constructor")
     this.config = new AppConfig();
-    this.clock = new Date().toISOString();
+    this.clock = "loading clock...";
     this.image = null!;
   }
 
   ngOnDestroy(): void {
     this.timeSubscription.unsubscribe();
+    this.artSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.config = this.configService.getConfig();
     console.log(this.config);
 
-    this.timeSubscription = this.configService.getTimeObservable().subscribe(data => {
+    this.timeSubscription = this.clockService.getTimeObservable().subscribe(data => {
       this.clock = data.toISOString();
     });
 
