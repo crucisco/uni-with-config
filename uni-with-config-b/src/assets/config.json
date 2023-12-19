@@ -2,6 +2,11 @@
   "env": "Dev",
   "apiBaseUrl": "https://collectionapi.metmuseum.org/public/collection/v1",
   "activeTheme": "solution-b",
-  "loggerLevel": "DEBUG",
+  "logger": {
+    "browserLogLevel": 2,
+    "serverLogLevel": 7,
+    "serverLoggingUrl": null
+  },
   "buildRef": "1.0.0.0B-DEV"
 }
+

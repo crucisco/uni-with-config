@@ -9,7 +9,7 @@
   <ul>
     <li><b>Env:</b> {{config.env}}</li>
     <li class="activeTheme"><b>ActiveTheme:</b> {{config.activeTheme}}</li>
-    <li><b>LoggerLevel:</b> {{config.loggerLevel}}</li>
+    <li><b>LoggerLevel:</b> {{config.logger?.browserLogLevel}} (TRACE = 0, DEBUG = 1, INFO = 2, LOG = 3, WARN = 4, ERROR = 5, FATAL = 6, OFF = 7)</li>
     <li><b>BuildRef:</b> {{config.buildRef}}</li>
     <li><b>ApiBaseUrl: {{config.apiBaseUrl}}</b></li>
   </ul>

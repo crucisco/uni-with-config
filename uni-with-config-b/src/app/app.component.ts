@@ -3,6 +3,7 @@ import { AppConfig, APP_CONFIG } from './app.config';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { ClockService } from './services/clock.service';
 import { RandomImageService } from './services/random-image.service';
+import { NGXLogger, NgxLoggerLevel } from 'ngx-logger';
 
 @Component({
   selector: 'app-root',
@@ -18,11 +19,20 @@ export class AppComponent implements OnInit, OnDestroy {
   private timeSubscription: Subscription = new Subscription();
   private artSubscription: Subscription = new Subscription();
 
-  constructor(@Inject(APP_CONFIG) private appConfig: AppConfig, private clockService: ClockService, private imageService: RandomImageService) {
+  constructor(@Inject(APP_CONFIG) private appConfig: AppConfig, private clockService: ClockService, private imageService: RandomImageService, private logger: NGXLogger) {
     console.debug(`AppComponent constructor: ${appConfig.env}`);
     this.config = appConfig;
     this.clock = "loading clock...";
     this.image = null!;
+
+    console.debug(`NgxLogger browser level configured by runtime configuration: '${NgxLoggerLevel[this.logger.level]}'`);
+    this.logger.trace(`Trace output`);
+    this.logger.debug(`Debug output`);
+    this.logger.info(`Info output`);
+    this.logger.log(`Log output`);
+    this.logger.warn(`Warn output`);
+    this.logger.error(`Error output`);
+    this.logger.fatal(`Fatal output`);
   }
 
   ngOnInit(): void {

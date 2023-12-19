@@ -26,6 +26,7 @@
     "@nguniversal/express-engine": "^16.2.0",
     "browser-or-node": "^2.1.1",
     "express": "^4.15.2",
+    "ngx-logger": "^5.0.12",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
