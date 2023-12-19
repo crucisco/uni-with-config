@@ -1,10 +1,11 @@
 import { InjectionToken } from "@angular/core"
+import { LoggerConfig } from "./logger.config";
 
 export class AppConfig {
   env: string = ""
   apiBaseUrl: string = ""
   activeTheme: string = ""
-  loggerLevel: string = ""
+  logger: LoggerConfig | null = null;
   buildRef: string = ""
 }
 
