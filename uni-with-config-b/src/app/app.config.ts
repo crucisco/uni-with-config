@@ -1,5 +1,5 @@
 import { InjectionToken } from "@angular/core";
-import { NgxLoggerLevel } from "ngx-logger";
+import { LoggerConfig } from "./logger.config";
 
 export class AppConfig {
   env: string = '';
@@ -7,12 +7,6 @@ export class AppConfig {
   activeTheme: string = '';
   logger: LoggerConfig | null = null;
   buildRef: string = '';
-}
-
-export class LoggerConfig {
-  browserLogLevel: NgxLoggerLevel = NgxLoggerLevel.TRACE;
-  serverLogLevel: NgxLoggerLevel = NgxLoggerLevel.TRACE;
-  serverLoggingUrl: string | undefined;
 }
 
 export let APP_CONFIG = new InjectionToken<AppConfig>('APP_CONFIG')

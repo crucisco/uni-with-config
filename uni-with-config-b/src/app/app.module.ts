@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RandomImageService } from './services/random-image.service';
 import { ClockService } from './services/clock.service';
-import { APP_CONFIG, AppConfig, LoggerConfig } from './app.config';
+import { APP_CONFIG, AppConfig } from './app.config';
+import { LoggerConfig } from "./logger.config";
 import { INGXLoggerConfig, LoggerModule, NGXLoggerConfigEngine, NgxLoggerLevel, TOKEN_LOGGER_CONFIG } from 'ngx-logger';
 
 @NgModule({
