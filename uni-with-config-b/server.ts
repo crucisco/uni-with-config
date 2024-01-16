@@ -16,16 +16,6 @@ export function app(): express.Express {
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/main/modules/express-engine)
   server.engine('html', ngExpressEngine({
-    providers: [
-      {
-        provide: APP_CONFIG,
-        useFactory: (config: AppConfig) => {
-          config = require("./src/assets/config.json");
-          console.debug(`Node server loaded app config for SSR. Env: ${config.env}`);
-          return config;
-        }
-      }
-    ],
     bootstrap: AppServerModule
   }));
 
